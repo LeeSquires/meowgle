@@ -15,7 +15,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Meowgle",
   description:
-    "Discover Meowgle, the purr-fect search engine for cat lovers! With a user-friendly interface and cat-centric results, finding information on cats has never been more delightful.",
+    "Discover Meowgle, the purr-fect search engine for cat lovers! With a user-friendly interface and cat-centric results, finding information on cats has never been easier.",
 };
 
 export default function RootLayout({
@@ -23,6 +23,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="en" className={roboto.className}>
       <body className="dark:bg-google-dark">

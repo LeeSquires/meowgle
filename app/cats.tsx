@@ -6,16 +6,22 @@ import { FC } from "react";
 import useSWR, { mutate } from "swr";
 import fetcher from "@/lib/fetcher";
 import { useSearchParams } from "next/navigation";
-import ImageSkeleton from "./image-skeleton";
+import ImageSkeleton from "../components/image-skeleton";
 
 const Cats: FC = () => {
   const searchParams = useSearchParams();
   const breedId = searchParams.get("breed") || "";
 
   // Only send request for cats if a breed has been selected, else it shows random images
-  const swrKey = breedId ? `https://api.thecatapi.com/v1/images/search?limit=10&breed_id=${breedId}` : "";
+  const swrKey = breedId
+    ? `https://api.thecatapi.com/v1/images/search?limit=10&order=desc&breed_id=${breedId}`
+    : "";
 
-  const { data: cats, error, isLoading } = useSWR<Cat[]>(swrKey, fetcher);
+  const {
+    data: cats,
+    error,
+    isLoading,
+  } = useSWR<Cat[]>(swrKey, fetcher);
 
   if (error)
     return (
@@ -26,9 +32,9 @@ const Cats: FC = () => {
 
   return (
     <div className="grid grid-cols-3 gap-4">
-      {cats &&
-        cats.map((cat: Cat) => (
-          <div key={cat.id} className="max-w-[33%]">
+        {cats &&
+          cats.map((cat: Cat) => (
+            <div key={cat.id} className="max-w-[33%]">
               <div className="w-[300px] h-[300px]">
                 <img
                   className="object-cover w-full h-full"
@@ -42,11 +48,9 @@ const Cats: FC = () => {
               >
                 View Details
               </Link>
-          </div>
-        ))}
-        {isLoading && (
-          <ImageSkeleton />
-        )}
+            </div>
+          ))}
+        {isLoading && <ImageSkeleton />}
     </div>
   );
 };
