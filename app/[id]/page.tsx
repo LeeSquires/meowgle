@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <Button>
         <Link href={`/?breed=${cat.breeds[0].id}`}>{`Back`}</Link>
       </Button>
-      <div className="flex flex-row p-4 pl-0 gap-8">
+      <div className="flex flex-col sm:flex-row md:flex-row p-0 pt-4 sm:p-4 sm:pl-0 gap-8">
         <div className="max-w-[600px]">
           <img
             className="object-cover w-full h-full rounded-md"
