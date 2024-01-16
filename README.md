@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Meowgle
 
-## Getting Started
+Meowgle is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-First, run the development server:
+The design is based on [Google](https://www.google.com).
+
+## Objectives
+
+- Study [TheCatAPI](https://developers.thecatapi.com/) documentation and implement the following:
+
+- Create a React app with 2 pages: Home Page & Single Cat Page
+- Using a `<Select />` input, allow the user to choose from a breed of cats which should then load from the API
+- Add a 'load more' button to load images of cats that have not already loaded. The button should disappear once no more cats are retrieved
+- When selecting a different breed, the previous images should be cleared and replaced with the new images
+- Add a link to the cat on the Single Cat Page and show various information about it from the API
+- A back button on the Single Cat Page which should take the user back to the previous breed with the images loaded
+- Handle API exceptions with the following: "Apologies but we could not load new cats for you at this time! Miau!"
+
+## Installation
+
+First, install dependencies and then run the development server
 
 ```bash
+npm install
+# and
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API Key
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+For the API requests to run successfully, you must be authenticated with an API Key.
 
-## Learn More
+Simply sign up for a free API Key from [TheCatAPI](https://developers.thecatapi.com/) and add it a new .env.local file with the name `API_KEY`.
 
-To learn more about Next.js, take a look at the following resources:
+## Technology
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The following tools were used to create this project:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- NextJS (App Router) - [Next.js](https://nextjs.org/)
+- Tailwind - [Tailwind](https://tailwindcss.com/)
+- shadcn\ui - [shadcnui](https://ui.shadcn.com/)
+- SWR - [SWR](https://swr.vercel.app/)
+- Figma (Logo, Icons) - [Figma](https://www.figma.com/)
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A working version is available here:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Meowgle](https://meowgle.vercel.app/)
