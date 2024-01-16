@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <div className="relative max-w-[400px]">
+    <div className="relative max-w-[200px] sm:max-w-[400px]">
       <Image
         className="h-0 dark:h-full"
         src={Meowgle_Dark}

@@ -1,3 +1,8 @@
+export interface CatData {
+  cats: Cat[];
+  numberOfCats: number;
+}
+
 export interface Cat {
   breeds: Array<CatBreed>;
   id: string;

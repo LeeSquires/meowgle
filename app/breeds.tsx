@@ -33,7 +33,7 @@ const Breeds: FC = () => {
   const breedId = searchParams.get("breed") || "";
 
   const handleSelectChange = (value: string) => {
-    router.push(`?breed=${value}`);
+    router.push(`/?breed=${value}`);
   };
 
   return (
