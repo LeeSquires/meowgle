@@ -8,14 +8,12 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   if (!cat) return <p>Cat cannot be found.</p>;
 
-  const countryCode = cat.breeds[0].country_code;
-
   return (
-    <main>
+    <main className="p-4">
       <Button>
         <Link href={`/?breed=${cat.breeds[0].id}`}>{`Back`}</Link>
       </Button>
-      <div className="flex flex-row p-4 gap-4">
+      <div className="flex flex-row p-4 pl-0 gap-8">
         <div className="max-w-[600px]">
           <img
             className="object-cover w-full h-full rounded-md"

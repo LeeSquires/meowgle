@@ -9,6 +9,7 @@ import fetcher from "@/lib/fetcher";
 import { useSearchParams } from "next/navigation";
 import ImageSkeleton from "../components/image-skeleton";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 const Cats: FC = () => {
   const searchParams = useSearchParams();
@@ -26,7 +27,7 @@ const Cats: FC = () => {
     return `/api/cats?pageIndex=${pageIndex}&breedId=${breedId}`;
   };
 
-  const { data, size, setSize, error, isLoading } = useSWRInfinite(
+  const { data, size, setSize, error, isLoading, isValidating } = useSWRInfinite(
     getKey,
     fetcher,
     {
@@ -69,7 +70,16 @@ const Cats: FC = () => {
           </div>
         ))}
       {moreToLoad && data && (
-        <Button onClick={() => setSize(size + 1)}>Load more</Button>
+        <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2">
+          {isValidating ? (
+            <Button disabled className="shadow">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Loading
+            </Button>
+          ) : (
+            <Button className="shadow" onClick={() => setSize(size + 1)}>Load more</Button>
+          )}
+        </div>
       )}
       {isLoading && <ImageSkeleton />}
     </div>

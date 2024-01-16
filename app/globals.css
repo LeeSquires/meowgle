@@ -18,10 +18,10 @@ body {
     --card-foreground: 0, 0%, 37%;
  
     --popover: 0 0% 100%;
-    --popover-foreground: 0, 0%, 37%;
+    --popover-foreground: 225, 6%, 13%;
  
     --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 0, 0%, 37%;
+    --primary-foreground: 225, 6%, 13%;
  
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 0, 0%, 37%;
