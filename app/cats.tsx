@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Cat } from "@/types/cat.types";
 import { FC } from "react";
@@ -26,6 +26,11 @@ const Cats: FC = () => {
     if (!breedId) return null;
     return `/api/cats?pageIndex=${pageIndex}&breedId=${breedId}`;
   };
+
+  // Set moreToLoad back to true when breedId changes
+  useEffect(() => {
+    setMoreToLoad(true); 
+  }, [breedId]);  
 
   const { data, size, setSize, error, isLoading, isValidating } =
     useSWRInfinite(getKey, fetcher, {
